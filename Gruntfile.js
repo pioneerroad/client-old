@@ -6,7 +6,6 @@ module.exports = function(grunt) {
       development: {
         options: {
           compress: true,
-          yuicompress: true,
           optimization: 2
         },
         files: {
@@ -15,23 +14,31 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-        html: {
-            files: ['*.html','ui/css/*.css'],
-            options: {
-                livereload:true,
-                nospawn: true
-            }
-        },
+      html: {
+        files: ['*.html', 'ui/css/*.css'],
+        options: {
+          livereload: true,
+          nospawn: true
+        }
+      },
       styles: {
         files: ['ui/css/less/**/*.less'], // which files to watch
         tasks: ['less'],
         options: {
-            livereload:true,
-            nospawn: true
+          livereload: true,
+          nospawn: true
+        }
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 9000,
+          base: './'
         }
       }
     }
   });
 
-  grunt.registerTask('default', ['less', 'watch']);
+  grunt.registerTask('default', ['connect', 'less', 'watch']);
 };

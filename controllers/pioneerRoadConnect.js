@@ -1,8 +1,6 @@
 angular.module("pioneerRoadConnect", ["ngRoute"])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
-        // $locationProvider.html5Mode(true);
-
         $routeProvider.when("/", {
             templateUrl: "/views/home.html"
         });
@@ -18,4 +16,6 @@ angular.module("pioneerRoadConnect", ["ngRoute"])
         $routeProvider.when("/member", {
             templateUrl: "/views/member-main.html"
         });
+
+        $locationProvider.html5Mode(true);
     }]);

@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="pioneerRoadConnect">
     <head>
-        <base href="/">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <base href="/">
         <title>Pioneer Road: Connect</title>
-        <script src="vendor/angular/angular.min.js"></script>
-        <script src="vendor/angular-route/angular-route.min.js"></script>
-        <script src="controllers/pioneerRoadConnect.js"></script>
-        <script src="directives/customDirectives.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400' rel='stylesheet' type='text/css'>
         <link href="ui/css/main.css" rel="stylesheet" />
     </head>
@@ -16,6 +12,12 @@
             <ng-view></ng-view>
             <footer-menu></footer-menu> <!-- This will be replaced by footer menu -->
         </div>
+
+        <script src="vendor/angular/angular.min.js"></script>
+        <script src="vendor/angular-route/angular-route.min.js"></script>
+        <script src="controllers/pioneerRoadConnect.js"></script>
+        <script src="directives/customDirectives.js"></script>
+        
         <script src="http://localhost:35729/livereload.js"></script>
 
     </body>

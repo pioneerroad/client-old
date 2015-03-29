@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   require('jit-grunt')(grunt);
+  var pushState = require('connect-pushstate');
 
   grunt.initConfig({
     less: {
@@ -34,7 +35,13 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9000,
-          base: './'
+          base: './',
+          middleware: function(connect, options) {
+            return [
+              pushState(),
+              connect.static(options.base[0])
+            ];
+          }
         }
       }
     }

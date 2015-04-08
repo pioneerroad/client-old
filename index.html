@@ -4,18 +4,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <base href="/">
         <title>Pioneer Road: Connect</title>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:300,700,400" rel="stylesheet" />
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
         <link href="ui/css/main.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="container">
-            <ng-view></ng-view>
-            <footer-menu></footer-menu> <!-- This will be replaced by footer menu -->
+        <div class="container-fluid">
+            <div class="row" id="pioneerRoadHeader">
+              <div class="col-xs-3">
+                <p class="text-left">Back</p>
+              </div>
+              <div class="col-xs-6">
+                <p class="text-center">Profile</p>
+              </div>
+              <div class="col-xs-3">
+                <p class="text-right">Settings</p>
+              </div>
+            </div>
+            <!-- <div style="height:4em;"></div> -->
+            <div class="pioneer-app-view"><ng-view></ng-view></div>
         </div>
+        <!-- <div style="height:10em;"></div> -->
+        <footer-menu></footer-menu> <!-- This will be replaced by footer menu -->
 
         <script src="vendor/angular/angular.min.js"></script>
         <script src="vendor/angular-route/angular-route.min.js"></script>
         <script src="controllers/pioneerRoadConnect.js"></script>
+        <script src="controllers/friendsController.js"></script>
+        <script src="controllers/loginController.js"></script>
         <script src="directives/customDirectives.js"></script>
         
         <script src="http://localhost:35729/livereload.js"></script>

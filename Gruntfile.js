@@ -6,24 +6,25 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          compress: true,
+          compress: false,
           optimization: 2
         },
         files: {
-          "ui/css/main.css": "ui/css/less/main.less" // destination file and source file
+          "app/assets/stylesheets/base.css": "app/assets/less/base.less",
+          "app/assets/stylesheets/custom.css": "app/assets/less/custom.less"
         }
       }
     },
     watch: {
       html: {
-        files: ['*.html', 'ui/css/*.css', 'views/*.html'],
+        files: ['app/index.html', 'app/views/**/*.html', 'app/assets/stylesheets/*.css'],
         options: {
           livereload: true,
           nospawn: true
         }
       },
       styles: {
-        files: ['ui/css/less/**/*.less'], // which files to watch
+        files: ['app/assets/less/**/*.less'], // which files to watch
         tasks: ['less'],
         options: {
           livereload: true,
@@ -35,7 +36,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9000,
-          base: './',
+          base: 'app',
           middleware: function(connect, options) {
             return [
               pushState(),

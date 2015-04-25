@@ -6,7 +6,7 @@ angular.module("pioneerRoadConnect")
 		return {
 			scope: {},
 			replace: true,
-			templateUrl: "directives/templates/footerMenuTpl.html",
+			templateUrl: "/directives/templates/footerMenuTpl.html",
 			restrict: "E"
 		};
 	});

@@ -22,7 +22,8 @@ angular.module('pioneerRoadConnect', ['ngRoute'])
       })
       .when('/login', {
         templateUrl: '/views/login.html'
-      });
+      })
+      .otherwise('/');
 
     $locationProvider.html5Mode(true);
   }]);

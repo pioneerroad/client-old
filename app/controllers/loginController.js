@@ -1,16 +1,14 @@
 angular.module('pioneerRoadConnect')
-  .controller('LoginCtrl', ['$scope', '$http', function($scope, $http) {
+  .controller('LoginCtrl', ['$scope', '$http', 'AuthenticationService', function($scope, $http, AuthenticationService) {
     $scope.authenticate = function() {
-      $http.post('/user/login', {
-        username: $scope.username,
-        password: $scope.password
-      }).then(function(user) {
-        // Save the token in cache here
-        console.log(user);
-        console.log('authenticated');
-      }).error(function(err) {
-        // Display the alert showing the message that user is not valid.
-        console.log('error' + err);
+      AuthenticationService.ClearCredentials();
+      AuthenticationService.SetCredentials($scope.username, $scope.password);
+      AuthenticationService.Login($scope.username, $scope.password)
+      .success(function(response) {
+        console.log(response);
+      })
+      .error(function(error) {
+        console.log(error);
       });
     };
   }]);

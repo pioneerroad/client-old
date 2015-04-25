@@ -1,4 +1,4 @@
-angular.module('pioneerRoadConnect', ['ngRoute'])
+angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies'])
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider

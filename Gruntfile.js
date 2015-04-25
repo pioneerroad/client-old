@@ -40,7 +40,7 @@ module.exports = function(grunt) {
           middleware: function(connect, options) {
             return [
               pushState(),
-              connect.static(options.base[0])
+              connect.static(options.base[0]),
             ];
           }
         }

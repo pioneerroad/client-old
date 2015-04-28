@@ -6,10 +6,10 @@ angular.module('pioneerRoadConnect')
       service.Login = function(username, password) {
         /* Use this for real authentication
          ----------------------------------------------*/
-        return $http.post('http://localhost:3000/api/v1/user/login', {
-            username: username,
-            password: password
-          });
+        return $http.post('http://localhost:8080/api/v1/user/login', {
+          username: username,
+          password: password
+        });
       };
 
       service.SetCredentials = function(username, password) {

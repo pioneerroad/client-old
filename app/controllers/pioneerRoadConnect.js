@@ -18,10 +18,16 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies'])
         templateUrl: '/views/profile-index.html'
       })
       .when('/profile/edit', {
-        templateUrl: '/views/profile-edit.html'
+        templateUrl: '/views/profile-edit.html',
+        controller: 'ProfileEditCtrl'
       })
       .when('/login', {
-        templateUrl: '/views/login.html'
+        templateUrl: '/views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/signup', {
+        templateUrl: '/views/signup.html',
+        controller: 'SignUpCtrl'
       })
       .otherwise('/');
 

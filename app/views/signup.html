@@ -1,0 +1,74 @@
+<div ng-controller="SignUpCtrl">
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      <div class="alert alert-dismissible" ng-class="messageType" ng-show="messageBool" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ message }}
+        <ul ng-repeat="error in errors">
+          <li>{{error.message}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <h1 class="text-center">Sign Up</h1>
+    </div>
+  </div>
+  <form id="signupForm" name="signupForm" ng-submit="signup()" novalidate>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+        <!-- <div class="form-group has-error has-feedback"> -->
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+            <input type="text" class="form-control input-lg" ng-model="user.username" name="username" id="username" placeholder="Username" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-key"></i></div>
+            <input type="password" class="form-control input-lg" ng-model="user.password" name="password" id="password" placeholder="Password" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">@</div>
+            <input type="text" class="form-control input-lg" ng-model="user.mail" name="mail" id="mail" placeholder="E-mail" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
+            <input type="text" class="form-control input-lg" ng-model="user.cell" name="cell" id="cell" placeholder="Mobile Number" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-comment"></i></div>
+            <input type="text" class="form-control input-lg" ng-model="user.status" name="status" id="status" placeholder="Status">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-default btn-lg btn-block">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>

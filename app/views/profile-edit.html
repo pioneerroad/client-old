@@ -1,3 +1,14 @@
+<div id="homeTownList" ng-show="showHomeTown">
+  <div class="container-fluid">
+    <input type="text" class="form-control" id="hometownList" ng-model="hometownList" placeholder="Enter your hometown...">
+    <div class="home-town-results">
+      <div class="home-town" ng-repeat="hometown in ['first','second','third'] | filter:hometownList" ng-click="populateHomeTown(hometown)">
+        {{ hometown }}
+      </div>
+    </div>
+    <button class="btn btn-lg btn-primary" ng-click="closeHomeTown()">Close Home Town</button>
+  </div>
+</div>
 <div class="row">
   <div class="col-xs-12">
     <div class="col-xs-9"></div>
@@ -13,7 +24,7 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <input type="text" class="form-control" id="fullname" placeholder="Enter your fullname...">
+        <input type="text" class="form-control" id="fullname" ng-model="user.fullname" placeholder="Enter your fullname...">
       </div>
     </div>
     <div class="col-xs-3">
@@ -22,11 +33,24 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
+      <label for="hometown">Home Town</label>
+    </div>
+    <div class="col-xs-9">
+      <div class="form-group">
+        <input type="text" class="form-control" id="hometown" ng-model="user.hometown" placeholder="Enter your hometown..." ng-click="listHomeTown()">
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-success" ng-class="btnClass.hometown" ng-click="changeButton('hometown')">{{ btnText.hometown }}</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
       <label for="background_photo">Background Photo</label>
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <input type="file" class="form-control" id="background_photo" placeholder="Select a background photo...">
+        <input type="file" class="form-control" id="background_photo" ng-model="user.background_photo" placeholder="Select a background photo...">
       </div>
     </div>
     <div class="col-xs-3">
@@ -39,7 +63,7 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <input type="file" class="form-control" id="profile_photo" placeholder="Select your profile photo...">
+        <input type="file" class="form-control" id="profile_photo" ng-model="user.profile_photo" placeholder="Select your profile photo...">
       </div>
     </div>
     <div class="col-xs-3">
@@ -52,7 +76,7 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <select class="form-control" id="rv_type">
+        <select class="form-control" id="rv_type" ng-model="user.rv_type">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -71,7 +95,7 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <select class="form-control" id="rv_brand">
+        <select class="form-control" id="rv_brand" ng-model="user.rv_brand">
           <option>One</option>
           <option>Two</option>
           <option>Three</option>
@@ -89,7 +113,7 @@
       <label for="short_introduction">Short Introduction (180 Characters)</label>
     </div>
     <div class="col-xs-9">
-      <textarea class="form-control" id="short_introduction" placeholder="Give a brief introduction about yourself..." rows=5></textarea>
+      <textarea class="form-control" id="short_introduction" ng-model="user.short_introduction" placeholder="Give a brief introduction about yourself..." rows=5></textarea>
     </div>
     <div class="col-xs-3">
       <button class="btn btn-success" ng-class="btnClass.introduction" ng-click="changeButton('introduction')">{{ btnText.introduction }}</button>

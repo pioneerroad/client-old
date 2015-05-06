@@ -41,4 +41,5 @@
 }
 .angular-google-map-container {
   height: 400px;
+  margin-top: -0.4em;
 }

@@ -1,53 +1,39 @@
 angular.module('pioneerRoadConnect')
   .controller('PlacesMainCtrl', ['$scope', 'uiGmapGoogleMapApi', '$timeout', '$log', function($scope, uiGmapGoogleMapApi, $timeout, $log) {
     // $scope.map = { center: { latitude: -33.7969235, longitude: 150.9224326 }, zoom: 10 };
-    $scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 4 };
-        $scope.options = {scrollwheel: false};
-    $scope.coordsUpdates = 0;
-    $scope.dynamicMoveCtr = 0;
+    angular.element('.angular-google-map-container').height(angular.element(window).height());
+    $scope.map = {
+      center: {
+        latitude: 40.1451,
+        longitude: -99.6680
+      },
+      zoom: 4
+    };
+    $scope.options = {
+      scrollwheel: false
+    };
     $scope.marker = {
-      id: 0,
       coords: {
         latitude: 40.1451,
         longitude: -99.6680
       },
-      options: { draggable: true },
-      events: {
-        dragend: function (marker, eventName, args) {
-          $log.log('marker dragend');
-          var lat = marker.getPosition().lat();
-          var lon = marker.getPosition().lng();
-          $log.log(lat);
-          $log.log(lon);
-
-          $scope.marker.options = {
-            draggable: true,
-            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-            labelAnchor: "100 0",
-            labelClass: "marker-labels"
-          };
-        }
-      }
+      show: false,
+      id: 0
     };
-    $scope.$watchCollection("marker.coords", function (newVal, oldVal) {
-      if (_.isEqual(newVal, oldVal))
-        return;
-      $scope.coordsUpdates++;
-    });
-    $timeout(function () {
-      $scope.marker.coords = {
-        latitude: 42.1451,
-        longitude: -100.6680
-      };
-      $scope.dynamicMoveCtr++;
-      $timeout(function () {
-        $scope.marker.coords = {
-          latitude: 43.1451,
-          longitude: -102.6680
-        };
-        $scope.dynamicMoveCtr++;
-      }, 2000);
-    }, 1000);
+
+    $scope.windowOptions = {
+      visible: false
+    };
+
+    $scope.onClick = function() {
+      $scope.windowOptions.visible = !$scope.windowOptions.visible;
+    };
+
+    $scope.closeClick = function() {
+      $scope.windowOptions.visible = false;
+    };
+
+    $scope.title = "Window Title!";
     uiGmapGoogleMapApi.then(function(maps) {
       console.log(maps);
     });

@@ -1,9 +1,9 @@
 <div id="homeTownList" ng-show="showHomeTown">
   <div class="container-fluid">
-    <input type="text" class="form-control" id="hometownList" ng-model="hometownList" placeholder="Enter your hometown...">
+    <input type="text" class="form-control" ng-keyup="autoFillHomeTown()" id="hometownList" ng-model="hometownList" placeholder="Enter your hometown...">
     <div class="home-town-results">
-      <div class="home-town" ng-repeat="hometown in ['first','second','third'] | filter:hometownList" ng-click="populateHomeTown(hometown)">
-        {{ hometown }}
+      <div class="home-town" ng-repeat="hometown in homeTowns" ng-click="populateHomeTown(hometown)">
+        {{ hometown.label }}
       </div>
     </div>
     <button class="btn btn-lg btn-primary" ng-click="closeHomeTown()">Close Home Town</button>

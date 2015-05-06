@@ -1,9 +1,18 @@
 angular.module('pioneerRoadConnect')
-  .controller('ProfileEditCtrl', ['$scope', function($scope) {
+  .controller('ProfileEditCtrl', ['$scope', '$http', 'ApiPath', function($scope, $http, ApiPath) {
 
     angular.element('#homeTownList').height(angular.element(window).height());
     $scope.showHomeTown = false;
     $scope.user = {};
+    $scope.homeTowns = ['first','second','third'];
+
+    $scope.autoFillHomeTown = function() {
+      if($scope.hometownList.length > 2) {
+      $http.get(ApiPath + '/api/v1/town/select/' + $scope.hometownList)
+        .success(function(data) {  $scope.homeTowns = data; console.log(data); })
+        .error(function(error) { console.log(error); });
+      }
+    };
 
     $scope.listHomeTown = function() {
       $scope.showHomeTown = true;
@@ -13,8 +22,8 @@ angular.module('pioneerRoadConnect')
     };
 
     $scope.populateHomeTown = function(homeTown) {
-      $scope.hometownList = "";
-      $scope.user.hometown = homeTown;
+      // $scope.hometownList = "";
+      $scope.user.hometown = homeTown.label;
       $scope.closeHomeTown();
     };
 

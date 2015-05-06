@@ -2,6 +2,11 @@ angular.module('pioneerRoadConnect')
   .controller('LoginCtrl', ['$scope', '$http', '$location', '$timeout', '$cookies', 'AuthenticationService', function($scope, $http, $location, $timeout, $cookies, AuthenticationService) {
     $scope.messageBool = false;
     console.log($cookies.token);
+
+    $scope.closeError = function() {
+      $scope.messageBool = false;
+    };
+    
     $scope.authenticate = function() {
       AuthenticationService.ClearCredentials();
       AuthenticationService.SetCredentials($scope.username, $scope.password);
@@ -17,7 +22,7 @@ angular.module('pioneerRoadConnect')
             $scope.messageType = "alert-success";
             $scope.messageBool = true;
             $timeout(function() {
-              $location.path('/profile/edit');
+              $location.path('/profile');
             }, 500);
           }
         })

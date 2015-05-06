@@ -1,8 +1,8 @@
 <div ng-controller="SignUpCtrl">
   <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
-      <div class="alert alert-dismissible" ng-class="messageType" ng-show="messageBool" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="col-xs-12 col-md-offset-3 col-md-6">
+      <div class="alert alert-dismissible" ng-class="messageType" ng-show="messageBool">
+        <button type="button" class="close" ng-click="closeError()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {{ message }}
         <ul ng-repeat="error in errors">
           <li>{{error.message}}</li>

@@ -6642,10 +6642,9 @@ header ul li:nth-child(0n+3) a {
   background-position: center;
 }
 footer {
-  height: 80px;
+  z-index: 2;
   position: fixed;
   bottom: 0;
-  padding-bottom: 30px;
 }
 footer ul li {
   text-align: center;

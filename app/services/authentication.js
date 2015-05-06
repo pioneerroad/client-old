@@ -1,12 +1,12 @@
 angular.module('pioneerRoadConnect')
-  .factory('AuthenticationService', ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-    function(Base64, $http, $cookieStore, $rootScope, $timeout) {
+  .factory('AuthenticationService', ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout', 'ApiPath',
+    function(Base64, $http, $cookieStore, $rootScope, $timeout, ApiPath) {
       var service = {};
 
       service.Login = function(username, password) {
         /* Use this for real authentication
          ----------------------------------------------*/
-        return $http.post('http://localhost:8080/api/v1/user/login', {
+        return $http.post(ApiPath + '/api/v1/user/login', {
           username: username,
           password: password
         });

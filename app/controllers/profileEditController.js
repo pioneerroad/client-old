@@ -4,7 +4,7 @@ angular.module('pioneerRoadConnect')
     // make change button as a directive
     $scope.btnText = {};
     $scope.btnClass = {};
-    $scope.fields = ['nickname', 'backgroundPhoto', 'profilePhoto', 'rvType', 'brandRv', 'introduction'];
+    $scope.fields = ['fullname', 'backgroundPhoto', 'profilePhoto', 'rvType', 'brandRv', 'introduction'];
 
     $scope.fields.forEach(function(field) {
       $scope.btnText[field] = 'Private';

@@ -29,3 +29,16 @@
   color: #333;
   text-shadow: 1px solid #333;
 }
+.profile-link {
+  color: #FAFAFA;
+}
+.profile-link:hover {
+  color: #999;
+}
+.profile-link:active,
+.profile-link:visited {
+  color: #FAFAFA;
+}
+.angular-google-map-container {
+  height: 400px;
+}

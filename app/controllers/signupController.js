@@ -1,10 +1,14 @@
 angular.module('pioneerRoadConnect')
-  .controller('SignUpCtrl', ['$scope', '$http', '$timeout', '$location', function($scope, $http, $timeout, $location) {
+  .controller('SignUpCtrl', ['$scope', '$http', '$timeout', '$location', 'ApiPath', function($scope, $http, $timeout, $location, ApiPath) {
+    $scope.closeError = function() {
+      $scope.messageBool = false;
+    };
+    
     $scope.signup = function() {
       // validate the form data
       
       // send the request
-      $http.post('http://localhost:8080/api/v1/user/create', $scope.user)
+      $http.post(ApiPath + '/api/v1/user/create', $scope.user)
       .success(function(response) {
         console.log(response);
         $scope.messageType = "alert-success";

@@ -4,7 +4,7 @@ angular.module('pioneerRoadConnect')
     angular.element('#homeTownList').height(angular.element(window).height());
     $scope.showHomeTown = false;
     $scope.user = {};
-    $scope.homeTowns = ['first','second','third'];
+    $scope.homeTowns = [];
 
     $scope.autoFillHomeTown = function() {
       if($scope.hometownList.length > 2) {

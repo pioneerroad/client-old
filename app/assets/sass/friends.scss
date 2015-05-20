@@ -12,7 +12,7 @@
       border-radius: 10px;
       padding: 1em;
       transition: all 0.5s;
-      
+
       &:hover {
         box-shadow: 0px 2px 25px #999;
       }
@@ -33,30 +33,200 @@
           }
         }
       }
-
       .pr-details {
-        @include span(7 of 12);
+        @include span(last 8 of 12);
+
         .pr-name {
           font-size: 16px;
           font-weight: 600;
         }
         .pr-hometown, .pr-location {
           @include container;
+
           .pr-icon {
             text-align: center;
-            @include span(3 of 16);
+            @include span(4 of 16);
           }
           .pr-text {
-            @include span(12 of 16);
+            @include span(last 12 of 16);
             font-size: 14px;
           }
         }
         .pr-hometown {
-          .pr-icon { color: #1F4D70; }
+          .pr-icon {
+            color: #1F4D70;
+          }
         }
         .pr-location {
-          .pr-icon { color: #5D7331; }
+          .pr-icon {
+            color: #5D7331;
+          }
         }
+      }
+    }
+  }
+}
+.friends-profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include container;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+
+  .pr-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #FAFAFA;
+    border-bottom: 1px solid #DDD;
+    box-shadow: 0 2px 10px #555;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+
+    .pr-text {
+      font-size: 24px;
+      font-weight: 300;
+      margin: 0.5em 0;
+    }
+    .pr-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 1em;
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+        color: #999;
+      }
+    }
+  }
+  .pr-container {
+    margin-top: 4em;
+    position: relative;
+
+    .pr-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding-top: 2em;
+
+      img {
+        border: 5px solid #3996F5;
+        box-shadow: 0 10px 25px #000;
+        border-radius: 50px;
+        width: 100px;
+        opacity: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+          border: 5px solid darken(#3996F5, 10%);
+          opacity: 0.8;
+          box-shadow: 0 15px 50px #000;
+        }
+      }
+    }
+    .pr-background {
+      img {
+        width: 100%;
+        height: 150px;
+      }
+    }
+  }
+  .pr-details {
+    .pr-hometown {
+      @include container;
+      margin: 1em;
+      background: #97D1F3;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #AAA;
+      padding: 0.5em;
+
+      .pr-heading {
+        font-size: 24px;
+        font-weight: 300;
+        color: #203186;
+      }
+      .pr-ht-icon {
+        color: #0D68E7;
+        font-size: 24px;
+        text-align: center;
+        @include span(3 of 12);
+      }
+      .pr-ht-details {
+        @include span(last 9 of 12);
+
+        .txt-1, .txt-2 {
+          font-size: 20px;
+          color: #3730AE;
+        }
+      }
+    }
+    .pr-clocation {
+      @include container;
+      margin: 1em;
+      background: #FFE596;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #AAA;
+      padding: 0.5em;
+
+      .pr-heading {
+        font-size: 24px;
+        font-weight: 300;
+        color: #F40707;
+      }
+      .pr-cl-icon {
+        color: #F40707;
+        font-size: 24px;
+        text-align: center;
+        @include span(3 of 12);
+      }
+      .pr-cl-details {
+        @include span(last 9 of 12);
+
+        .txt-1, .txt-2, .txt-3 {
+          font-size: 20px;
+          color: #684012;
+        }
+      }
+    }
+    .pr-rig {
+      @include container;
+      margin: 1em;
+      background: #93E0CB;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #AAA;
+      padding: 0.5em;
+
+      .rig-heading {
+        font-size: 24px;
+        font-weight: 300;
+        color: #114C3C;
+      }
+      .rig-image {
+        @include span(6 of 12);
+        text-align: center;
+
+        img {
+          border-radius: 2px;
+          box-shadow: 0 1px 2px #999;
+        }
+      }
+      .rig-details {
+        @include span(last 6 of 12);
+        .txt-1, .txt-2 {
+          font-size: 20px;
+          font-weight: 600;
+          color: #215220;
+        }
+        .txt-3 { font-size: 18px; color: #278826; }
       }
     }
   }

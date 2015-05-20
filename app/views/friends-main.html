@@ -1,4 +1,4 @@
-<div class="pa-friends" ng-controller="FriendsCtrl">
+<div class="pa-friends">
   <div class="sub-tabs">
     <div class="st-center">
       <div class="btn-group" role="group">
@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="friends">
-    <div class="friend" ng-repeat="friend in values">
+    <div class="friend" ng-repeat="friend in values" ng-click="showFriendProfileView()">
       <div class="pr-image">
         <img src="http://placekitten.com/g/90/90" alt="Friend Image">
       </div>
@@ -28,6 +28,53 @@
             <div class="txt-2">Snowy Mountains NSW</div>
           </div>
         </div>
+    </div>
+  </div>
+</div>
+
+<div class="friends-profile" ng-show="friendProfileView">
+  <div class="pr-header">
+    <div class="pr-text">June and Rick Beresfield</div>
+    <div class="pr-close" ng-click="closeFriendProfileView()"><i class="fa fa-close fa-2x"></i></div>
+  </div>
+  <div class="pr-container">
+    <div class="pr-background">
+      <img src="http://placekitten.com/g/768/200" alt="Profile Background">
+    </div>
+    <div class="pr-image">
+      <img src="http://placekitten.com/g/125/125" alt="Profile Image">
+    </div>
+  </div>
+  <div class="pr-details">
+    <div class="pr-hometown">
+      <div class="pr-heading">Hometown</div>
+      <div class="pr-ht-icon"><i class="fa fa-home fa-2x"></i></div>
+      <div class="pr-ht-details">
+        <div class="txt-1">Warrnambool</div>
+        <div class="txt-2">Western Region VC</div>
+      </div>
+    </div>
+    <div class="pr-clocation">
+      <div class="pr-heading">Currnet Location</div>
+      <div class="pr-cl-icon"><i class="fa fa-map-marker fa-2x"></i></div>
+      <div class="pr-cl-details">
+        <div class="txt-1">Alice Springs</div>
+        <div class="txt-2">MacDonnell Region NT</div>
+        <div class="txt-3">3 hours ago</div>
+      </div>
+    </div>
+    <div class="pr-rig">
+      <div class="rig-heading">
+        The Rig
+      </div>
+      <div class="rig-image">
+        <img src="http://placekitten.com/g/125/125" alt="The Rig">
+      </div>
+      <div class="rig-details">
+        <div class="txt-1">Suncamper</div>
+        <div class="txt-2">Sherwood 4x4</div>
+        <div class="txt-3">2012</div>
+      </div>
     </div>
   </div>
 </div>

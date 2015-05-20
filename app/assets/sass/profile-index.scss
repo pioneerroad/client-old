@@ -69,13 +69,13 @@
       @include container;
 
       .pi-marker {
-        @include span(2 of 12);
+        @include span(3 of 12);
         text-align: center;
         font-size: 2em;
         color: #D6350C;
       }
       .pi-details {
-        @include span(6 of 12);
+        @include span(last 9 of 12);
 
         .nearby {
           font-size: 16px;
@@ -128,7 +128,7 @@
         }
       }
       .pi-details {
-        @include span(6 of 12);
+        @include span(last 9 of 12);
         .pi-name {
           color: #333;
         }

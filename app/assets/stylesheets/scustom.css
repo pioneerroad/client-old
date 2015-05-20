@@ -76,7 +76,7 @@
   clear: both;
 }
 .profile-index .pi-location .pi-row .pi-marker {
-  width: 15.25424%;
+  width: 23.72881%;
   float: left;
   margin-right: 1.69492%;
   text-align: center;
@@ -84,9 +84,9 @@
   color: #D6350C;
 }
 .profile-index .pi-location .pi-row .pi-details {
-  width: 49.15254%;
-  float: left;
-  margin-right: 1.69492%;
+  width: 74.57627%;
+  float: right;
+  margin-right: 0;
 }
 .profile-index .pi-location .pi-row .pi-details .nearby {
   font-size: 16px;
@@ -153,9 +153,9 @@
   cursor: pointer;
 }
 .profile-index .pi-friends .pi-friend .pi-details {
-  width: 49.15254%;
-  float: left;
-  margin-right: 1.69492%;
+  width: 74.57627%;
+  float: right;
+  margin-right: 0;
 }
 .profile-index .pi-friends .pi-friend .pi-details .pi-name {
   color: #333;
@@ -216,9 +216,9 @@
   box-shadow: 0 5px 5px #000;
 }
 .pa-friends .friends .friend .pr-details {
-  width: 57.62712%;
-  float: left;
-  margin-right: 1.69492%;
+  width: 66.10169%;
+  float: right;
+  margin-right: 0;
 }
 .pa-friends .friends .friend .pr-details .pr-name {
   font-size: 16px;
@@ -236,14 +236,14 @@
 }
 .pa-friends .friends .friend .pr-details .pr-hometown .pr-icon, .pa-friends .friends .friend .pr-details .pr-location .pr-icon {
   text-align: center;
-  width: 17.72152%;
+  width: 24.05063%;
   float: left;
   margin-right: 1.26582%;
 }
 .pa-friends .friends .friend .pr-details .pr-hometown .pr-text, .pa-friends .friends .friend .pr-details .pr-location .pr-text {
   width: 74.68354%;
-  float: left;
-  margin-right: 1.26582%;
+  float: right;
+  margin-right: 0;
   font-size: 14px;
 }
 .pa-friends .friends .friend .pr-details .pr-hometown .pr-icon {
@@ -251,6 +251,200 @@
 }
 .pa-friends .friends .friend .pr-details .pr-location .pr-icon {
   color: #5D7331;
+}
+
+.friends-profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.friends-profile:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.friends-profile .pr-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FAFAFA;
+  border-bottom: 1px solid #DDD;
+  box-shadow: 0 2px 10px #555;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+.friends-profile .pr-header .pr-text {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0.5em 0;
+}
+.friends-profile .pr-header .pr-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.friends-profile .pr-header .pr-close:hover {
+  color: #999;
+}
+.friends-profile .pr-container {
+  margin-top: 4em;
+  position: relative;
+}
+.friends-profile .pr-container .pr-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 2em;
+}
+.friends-profile .pr-container .pr-image img {
+  border: 5px solid #3996F5;
+  box-shadow: 0 10px 25px #000;
+  border-radius: 50px;
+  width: 100px;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.friends-profile .pr-container .pr-image img:hover {
+  border: 5px solid #0c7cef;
+  opacity: 0.8;
+  box-shadow: 0 15px 50px #000;
+}
+.friends-profile .pr-container .pr-background img {
+  width: 100%;
+  height: 150px;
+}
+.friends-profile .pr-details .pr-hometown {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1em;
+  background: #97D1F3;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #AAA;
+  padding: 0.5em;
+}
+.friends-profile .pr-details .pr-hometown:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.friends-profile .pr-details .pr-hometown .pr-heading {
+  font-size: 24px;
+  font-weight: 300;
+  color: #203186;
+}
+.friends-profile .pr-details .pr-hometown .pr-ht-icon {
+  color: #0D68E7;
+  font-size: 24px;
+  text-align: center;
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+}
+.friends-profile .pr-details .pr-hometown .pr-ht-details {
+  width: 74.57627%;
+  float: right;
+  margin-right: 0;
+}
+.friends-profile .pr-details .pr-hometown .pr-ht-details .txt-1, .friends-profile .pr-details .pr-hometown .pr-ht-details .txt-2 {
+  font-size: 20px;
+  color: #3730AE;
+}
+.friends-profile .pr-details .pr-clocation {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1em;
+  background: #FFE596;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #AAA;
+  padding: 0.5em;
+}
+.friends-profile .pr-details .pr-clocation:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.friends-profile .pr-details .pr-clocation .pr-heading {
+  font-size: 24px;
+  font-weight: 300;
+  color: #F40707;
+}
+.friends-profile .pr-details .pr-clocation .pr-cl-icon {
+  color: #F40707;
+  font-size: 24px;
+  text-align: center;
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%;
+}
+.friends-profile .pr-details .pr-clocation .pr-cl-details {
+  width: 74.57627%;
+  float: right;
+  margin-right: 0;
+}
+.friends-profile .pr-details .pr-clocation .pr-cl-details .txt-1, .friends-profile .pr-details .pr-clocation .pr-cl-details .txt-2, .friends-profile .pr-details .pr-clocation .pr-cl-details .txt-3 {
+  font-size: 20px;
+  color: #684012;
+}
+.friends-profile .pr-details .pr-rig {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1em;
+  background: #93E0CB;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #AAA;
+  padding: 0.5em;
+}
+.friends-profile .pr-details .pr-rig:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+.friends-profile .pr-details .pr-rig .rig-heading {
+  font-size: 24px;
+  font-weight: 300;
+  color: #114C3C;
+}
+.friends-profile .pr-details .pr-rig .rig-image {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  text-align: center;
+}
+.friends-profile .pr-details .pr-rig .rig-image img {
+  border-radius: 2px;
+  box-shadow: 0 1px 2px #999;
+}
+.friends-profile .pr-details .pr-rig .rig-details {
+  width: 49.15254%;
+  float: right;
+  margin-right: 0;
+}
+.friends-profile .pr-details .pr-rig .rig-details .txt-1, .friends-profile .pr-details .pr-rig .rig-details .txt-2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #215220;
+}
+.friends-profile .pr-details .pr-rig .rig-details .txt-3 {
+  font-size: 18px;
+  color: #278826;
 }
 
 /*# sourceMappingURL=scustom.css.map */

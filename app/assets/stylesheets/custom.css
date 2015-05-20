@@ -1,33 +1,84 @@
 /* Styles for Pioneer Header Navigation */
-#pioneerRoadHeader {
+.pioneerRoadHeader {
   background: #333;
   color: #FFF;
   padding-top: 0.5em;
-  box-shadow: 0 2px 5px #DDD;
   position: fixed;
   width: 100%;
   z-index: 10;
+  height: 65px;
+}
+.pioneerRoadHeader .pr-friends p {
+  font-size: 1em;
+}
+.pioneerRoadHeader .pr-profile p {
+  font-size: 1.2em;
+}
+.pioneerRoadHeader .social-tabs {
+  overflow: auto;
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 100%;
+}
+.pioneerRoadHeader .social-tabs .pr-text {
+  color: #333;
+}
+.pioneerRoadHeader .social-tabs .center-tabs {
+  width: 38%;
+  overflow: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.pioneerRoadHeader .social-tabs .center-tabs .pr-text {
+  margin-top: 0.2em;
+  border-bottom: 2px solid #FF6100;
+}
+.pioneerRoadHeader .social-tabs .center-tabs .friends-tab {
+  float: left;
+  padding: 1em;
+  cursor: pointer;
+}
+.pioneerRoadHeader .social-tabs .center-tabs .groups-tab {
+  float: left;
+  padding: 1em;
+  cursor: pointer;
 }
 .pioneer-app-view {
-  margin-top: 3em;
   margin-bottom: 6em;
+}
+.pioneer-app-view .profile-index {
+  margin-top: 60px;
+}
+.pa-friends {
+  margin-top: 90px;
+  position: relative;
 }
 .pa-friends .tabs {
   padding: 0.5em 0;
   border-bottom: 2px solid #DDD;
 }
-.pa-friends .friends .friend {
-  padding: 0.5em 0;
-  border-bottom: 2px solid #DDD;
+.pa-friends .sub-tabs {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  padding-top: 2em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #E5E5E5;
+  z-index: 2;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
 }
-.pa-friends .friends .friend:hover {
-  background: #FAFAFA;
+.pa-friends .sub-tabs .st-center {
+  margin: 0 auto;
+  width: 50%;
 }
-.pa-friends .friends .friend .name {
-  padding: 0.25em;
-  font-size: 16px;
-  color: #333;
-  text-shadow: 1px solid #333;
+.pr-message {
+  position: absolute;
+  top: 1.5em;
+  right: 0;
+  padding: 0.25em 1em;
+  cursor: pointer;
 }
 .profile-link {
   color: #FAFAFA;
@@ -37,11 +88,22 @@
 }
 .profile-link:active,
 .profile-link:visited {
-  color: #FAFAFA;
+  color: #F3F3F3;
+}
+.pr-profile .text-center {
+  padding-top: 1em;
 }
 .angular-google-map-container {
   height: 400px;
   margin-top: -0.4em;
+}
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+.row {
+  margin: 0;
+  padding: 0;
 }
 .horizontal-rule {
   height: 1em;

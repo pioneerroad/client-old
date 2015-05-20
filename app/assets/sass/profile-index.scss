@@ -1,0 +1,144 @@
+.profile-index {
+  .pi-header {
+    margin-bottom: 1em;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 5px 10px #AAA;
+
+    .pi-background {
+      img {
+        width: 100%;
+        height: 200px;
+      }
+    }
+    .pi-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      text-align: center;
+      padding-top: 3em;
+
+      img {
+        border: 5px solid #3996F5;
+        box-shadow: 0 10px 25px #000;
+        border-radius: 50px;
+        width: 100px;
+        opacity: 1;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+          border: 5px solid darken(#3996F5, 10%);
+          opacity: 0.8;
+          box-shadow: 0 15px 50px #000;
+        }
+      }
+    }
+    .pi-settings {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 1em;
+      cursor: pointer;
+      text-shadow: 0 0 5px #333;
+      transition: all 0.5s;
+
+      &:hover {
+        color: #FAFAFA;
+      }
+    }
+  }
+  .pi-location {
+    @include container;
+    margin: 1em;
+    padding: 0.5em 0;
+    border-radius: 5px;
+    background: rgba(218, 161, 56, 0.69);
+    color: darken(rgba(218, 161, 56, 0.69), 20%);
+
+    .pi-heading {
+      margin-left: 0.5em;
+      color: lighten(#D6350C, 10%);
+      font-size: 20px;
+      font-weight: 300;
+    }
+    .pi-row {
+      @include container;
+
+      .pi-marker {
+        @include span(2 of 12);
+        text-align: center;
+        font-size: 2em;
+        color: #D6350C;
+      }
+      .pi-details {
+        @include span(6 of 12);
+
+        .nearby {
+          font-size: 16px;
+        }
+        .region {
+          font-size: 16px;
+        }
+        .checkin-time {
+          color: #333;
+          font-size: 16px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+  .pi-friends {
+    @include container;
+    margin: 1em;
+    padding: 0.5em 0;
+    background: #70C984;
+    color: darken(#70C984,20%);
+    border-radius: 5px;
+
+    .pi-heading {
+      font-size: 20px;
+      font-weight: 300;
+      margin-left: 0.5em;
+      margin-bottom: 0.5em;
+      color: darken(#70C984,40%);
+    }
+    .pi-friend {
+      @include container;
+      background: lighten(#70C984, 10%);
+      margin: 1em;
+      padding: 0.5em;
+      border-radius: 5px;
+      transition: all 0.25s;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+      .pi-image {
+        @include span(3 of 12);
+        text-align: center;
+        img {
+          box-shadow: 0 2px 5px #000;
+          border-radius: 50px;
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+      .pi-details {
+        @include span(6 of 12);
+        .pi-name {
+          color: #333;
+        }
+        .pi-distance {
+          color: #333;
+        }
+        .pi-time {
+          color: #FAFAFA;
+        }
+      }
+    }
+  }
+}

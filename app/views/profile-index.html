@@ -1,5 +1,59 @@
-<div class="content">
-  <h1>Places</h1>
+<div class="content profile-index">
+  <div class="pi-header">
+    <div class="pi-background">
+      <img src="http://placekitten.com/g/768/200" alt="Profile Background">
+    </div>
+    <div class="pi-image">
+      <img src="http://placekitten.com/g/125/125" alt="Profile Image">
+    </div>
+    <div class="pi-settings">
+      <i class="fa fa-2x fa-cog"></i>
+    </div>
+  </div>
+
+  <div class="pi-location">
+    <div class="pi-heading">Current Location</div>
+    <div class="pi-row">
+      <div class="pi-marker">
+        <i class="fa fa-2x fa-map-marker"></i>
+      </div>
+      <div class="pi-details">
+        <div class="nearby">Near Cooma(2 km)</div>
+        <div class="region">Snowy Mountains NSW</div>
+        <div class="checkin-time">Just Now</div>
+      </div>
+      <div class="pi-blank"></div>
+    </div>
+  </div>
+
+  <div class="pi-friends">
+    <div class="pi-heading">Friends Nearby</div>
+    <div class="pi-friend" ng-repeat="friend in friends">
+      <div class="pi-image">
+        <img ng-src="{{friend.image}}" alt="">
+      </div>
+      <div class="pi-details">
+        <div class="pi-name">
+          {{ friend.name }}
+        </div>
+        <div class="pi-distance">
+          {{ friend.distance }}
+        </div>
+        <div class="pi-time">
+          {{ friend.time }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-offset-6 text-center">
+    <button ng-click="logout()" class="btn btn-lg btn-primary">Logout</button>
+  </div>
+</div>
+
+<!-- <h1>Places</h1>
   <div class="section-icon">My Pioneer Road icon</div>
   <ul class="help help-user-page">
     <li>
@@ -29,11 +83,4 @@
         </div>
       </a>
     </li>
-  </ul>
-</div>
-
-<div class="row">
-  <div class="col-md-offset-3 col-md-offset-6 text-center">
-    <button ng-click="logout()" class="btn btn-lg btn-primary">Logout</button> 
-  </div>
-</div>
+  </ul> -->

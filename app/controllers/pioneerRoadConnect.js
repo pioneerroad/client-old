@@ -27,7 +27,8 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
         resolve: alreadyLoggedIn
       })
       .when('/friends', {
-        templateUrl: '/views/friends-main.html'
+        templateUrl: '/views/friends-main.html',
+        controller: 'FriendsCtrl'
       })
       .when('/places', {
         templateUrl: '/views/places-main.html',

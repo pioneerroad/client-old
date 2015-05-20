@@ -8,43 +8,74 @@
     <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/assets/stylesheets/base.css" rel="stylesheet" />
     <link href="/assets/stylesheets/custom.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/sbase.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/scustom.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row" id="pioneerRoadHeader">
-        <div class="col-xs-3">
-          <p class="text-left">Back</p>
+      <div ng-switch="header" class="pioneerRoadHeader">
+        <div ng-switch-when="friends" class="pr-friends">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="text-center"><a class="profile-link" ng-href="/profile">Friends & Groups</a></p>
+              <div class="social-tabs">
+                <div class="center-tabs">
+                <div class="friends-tab">
+                  <div class="pr-icon"><i class="fa fa-2x fa-user"></i></div>
+                  <div class="pr-text">Friends</div>
+                </div>
+                <div class="groups-tab">
+                  <div class="pr-icon"><i class="fa fa-2x fa-users"></i></div>
+                  <div class="pr-text">Groups</div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="pr-message">
+              <i class="fa fa-2x fa-envelope"></i>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-6">
-          <p class="text-center"><a class="profile-link" ng-href="/profile">Profile</a></p>
+        <div ng-switch-when="profile" class="pr-profile">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="text-center"><a class="profile-link" ng-href="/profile">Home</a></p>
+            </div>
+            <div class="pr-message">
+              <i class="fa fa-2x fa-envelope"></i>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-3">
-          <p class="text-right">Settings</p>
+        <div ng-switch-default>
+          <div class="row">
+          <h1>Hello</h1>
+          </div>
         </div>
       </div>
-      <!-- <div style="height:4em;"></div> -->
-      <div class="pioneer-app-view"><ng-view></ng-view></div>
-    </div>
-    <!-- <div style="height:10em;"></div> -->
-    <footer-menu></footer-menu> <!-- This will be replaced by footer menu -->
-    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/assets/vendor/angular/angular.min.js"></script>
-    <script src="/assets/vendor/angular-route/angular-route.min.js"></script>
-    <script src="/assets/vendor/angular-cookies/angular-cookies.min.js"></script>
-    <script src="/assets/vendor/lodash/lodash.js"></script>
-    <script src="/assets/vendor/angular-google-maps/dist/angular-google-maps.js"></script>
-    <script src="/controllers/pioneerRoadConnect.js"></script>
-    <script src="/services/authentication.js"></script>
-    <script src="/directives/customDirectives.js"></script>
-    <script src="/directives/ngEnter.js"></script>
-    <script src="/controllers/friendsController.js"></script>
-    <script src="/controllers/loginController.js"></script>
-    <script src="/controllers/signupController.js"></script>
-    <script src="/controllers/profileEditController.js"></script>
-    <script src="/controllers/profileIndexController.js"></script>
-    <script src="/controllers/placesMainController.js"></script>
-    
-    <script src="http://localhost:35729/livereload.js"></script>
-  </body>
-</html>
+        
+        <!-- <div style="height:4em;"></div> -->
+        <div class="pioneer-app-view"><ng-view></ng-view></div>
+      </div>
+      <!-- <div style="height:10em;"></div> -->
+      <footer-menu></footer-menu> <!-- This will be replaced by footer menu -->
+      <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+      <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="/assets/vendor/angular/angular.min.js"></script>
+      <script src="/assets/vendor/angular-route/angular-route.min.js"></script>
+      <script src="/assets/vendor/angular-cookies/angular-cookies.min.js"></script>
+      <script src="/assets/vendor/lodash/lodash.js"></script>
+      <script src="/assets/vendor/angular-google-maps/dist/angular-google-maps.js"></script>
+      <script src="/controllers/pioneerRoadConnect.js"></script>
+      <script src="/services/authentication.js"></script>
+      <script src="/directives/customDirectives.js"></script>
+      <script src="/directives/ngEnter.js"></script>
+      <script src="/controllers/friendsController.js"></script>
+      <script src="/controllers/loginController.js"></script>
+      <script src="/controllers/signupController.js"></script>
+      <script src="/controllers/profileEditController.js"></script>
+      <script src="/controllers/profileIndexController.js"></script>
+      <script src="/controllers/placesMainController.js"></script>
+      
+      <script src="http://localhost:35729/livereload.js"></script>
+    </body>
+  </html>

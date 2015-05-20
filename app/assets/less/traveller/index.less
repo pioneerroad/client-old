@@ -1,40 +1,79 @@
 /* Styles for Pioneer Header Navigation */
-#pioneerRoadHeader {
+.pioneerRoadHeader {
   background: #333;
   color: #FFF;
   padding-top: 0.5em;
-  box-shadow: 0 2px 5px #DDD;
   position: fixed;
   width: 100%;
   z-index: 10;
+  height: 65px;
+
+  .pr-friends {
+    p {
+      font-size: 1em;
+    }
+  }
+  .pr-profile {
+    p {
+      font-size: 1.2em;
+    }
+  }
+  .social-tabs {
+    overflow: auto;
+    position: absolute;
+    top: 0.7em; left: 0;
+    width: 100%;
+
+    .pr-text { color: #333; }
+    
+    .center-tabs {
+      width: 38%;
+      overflow: auto;
+      margin: 0 auto;
+      text-align: center;
+      .pr-text {
+        margin-top: 0.2em;
+        border-bottom: 2px solid #FF6100;
+      }
+      .friends-tab {
+        float: left;
+        padding: 1em;
+        cursor: pointer;
+      }
+      .groups-tab {
+        float: left;
+        padding: 1em;
+        cursor: pointer;
+      }
+    }
+  }
 }
 .pioneer-app-view {
-  margin-top: 3em;
   margin-bottom: 6em;
+  .profile-index {
+    margin-top: 60px;
+  }
 }
-
 .pa-friends {
+  margin-top: 90px;
+  position: relative;
   .tabs {
     padding: 0.5em 0;
     border-bottom: 2px solid #DDD;
   }
-  .friends {
-    .friend {
-      &:hover { background: #FAFAFA; }
-      padding: 0.5em 0;
-      border-bottom: 2px solid #DDD;
-      .name {
-        padding: 0.25em;
-        font-size: 16px;
-        color: #333;
-        text-shadow: 1px solid #333;
-      }
-      .home {
-        
-      }
-      .place {
-
-      }
+  .sub-tabs {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    padding-top: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #E5E5E5;
+    z-index: 2;
+    width: 100%;
+    background: rgba(255,255,255,0.9);
+    .st-center {
+      margin: 0 auto;
+      width: 50%;
     }
   }
 }

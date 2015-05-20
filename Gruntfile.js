@@ -15,6 +15,18 @@ module.exports = function(grunt) {
         }
       }
     },
+    sass: {
+      development: {
+        options: {
+          style: 'expanded',
+          require: 'susy'
+        },
+        files: {
+          "app/assets/stylesheets/sbase.css": "app/assets/sass/base.scss",
+          "app/assets/stylesheets/scustom.css": "app/assets/sass/custom.scss"
+        }
+      }
+    },
     watch: {
       html: {
         files: ['app/index.html', 'app/views/**/*.html', 'app/assets/stylesheets/*.css'],
@@ -23,9 +35,17 @@ module.exports = function(grunt) {
           nospawn: true
         }
       },
-      styles: {
+      less: {
         files: ['app/assets/less/**/*.less'], // which files to watch
         tasks: ['less'],
+        options: {
+          livereload: true,
+          nospawn: true
+        }
+      },
+      sass: {
+        files: ['app/assets/sass/**/*.scss'], // which files to watch
+        tasks: ['sass'],
         options: {
           livereload: true,
           nospawn: true
@@ -48,5 +68,5 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('default', ['connect', 'less', 'watch']);
+  grunt.registerTask('default', ['connect', 'less', 'sass', 'watch']);
 };

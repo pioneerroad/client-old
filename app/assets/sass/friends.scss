@@ -1,0 +1,63 @@
+.pa-friends {
+  .friends {
+    @include container;
+    margin-top: 10em;
+
+    .friend {
+      cursor: pointer;
+      @include container;
+      background: #70C984;
+      margin: 0 1em 0.5em 1em;
+      box-shadow: 0px 0px 3px #BBB;
+      border-radius: 10px;
+      padding: 1em;
+      transition: all 0.5s;
+      
+      &:hover {
+        box-shadow: 0px 2px 25px #999;
+      }
+      .pr-image {
+        @include span(4 of 12);
+        text-align: center;
+
+        img {
+          box-shadow: 0 2px 2px #000;
+          border-radius: 50px;
+          opacity: 1;
+          cursor: pointer;
+          transition: all 0.5s;
+
+          &:hover {
+            opacity: 0.8;
+            box-shadow: 0 5px 5px #000;
+          }
+        }
+      }
+
+      .pr-details {
+        @include span(7 of 12);
+        .pr-name {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .pr-hometown, .pr-location {
+          @include container;
+          .pr-icon {
+            text-align: center;
+            @include span(3 of 16);
+          }
+          .pr-text {
+            @include span(12 of 16);
+            font-size: 14px;
+          }
+        }
+        .pr-hometown {
+          .pr-icon { color: #1F4D70; }
+        }
+        .pr-location {
+          .pr-icon { color: #5D7331; }
+        }
+      }
+    }
+  }
+}

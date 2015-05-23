@@ -1,7 +1,8 @@
 angular.module('pioneerRoadConnect')
-  .controller('ProfileEditCtrl', ['$scope', '$http', 'ApiPath', function($scope, $http, ApiPath) {
+  .controller('ProfileEditCtrl', ['$scope', '$rootScope', '$http', 'ApiPath', function($scope, $rootScope, $http, ApiPath) {
 
     angular.element('#homeTownList').height(angular.element(window).height());
+    $rootScope.header = 'profile';
     $scope.showHomeTown = false;
     $scope.user = {};
     $scope.homeTowns = [];

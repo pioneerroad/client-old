@@ -1,6 +1,7 @@
 angular.module('pioneerRoadConnect')
-  .controller('LoginCtrl', ['$scope', '$http', '$location', '$timeout', '$cookies', 'AuthenticationService', function($scope, $http, $location, $timeout, $cookies, AuthenticationService) {
+  .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', '$timeout', '$cookies', 'AuthenticationService', function($scope, $rootScope, $http, $location, $timeout, $cookies, AuthenticationService) {
     $scope.messageBool = false;
+    $rootScope.header = '';
     console.log($cookies.token);
 
     $scope.closeError = function() {

@@ -37,6 +37,28 @@
             </div>
           </div>
         </div>
+        <div ng-switch-when="map" class="pr-friends">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="text-center"><a class="profile-link" ng-href="/profile">Places</a></p>
+              <div class="social-tabs">
+                <div class="center-tabs">
+                <div class="friends-tab">
+                  <div class="pr-icon"><i class="fa fa-2x fa-user"></i></div>
+                  <div class="pr-text">browse places</div>
+                </div>
+                <div class="groups-tab">
+                  <div class="pr-icon"><i class="fa fa-2x fa-users"></i></div>
+                  <div class="pr-text">search</div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="pr-message">
+              <i class="fa fa-2x fa-envelope"></i>
+            </div>
+          </div>
+        </div>
         <div ng-switch-when="profile" class="pr-profile">
           <div class="row">
             <div class="col-xs-12">
@@ -47,7 +69,7 @@
             </div>
           </div>
         </div>
-        <div ng-switch-default>
+        <div ng-switch-default class="pr-profile">
           <div class="row">
             <div class="col-xs-12">
               <p class="text-center"><a class="profile-link" ng-href="/profile">Pioneer Road</a></p>

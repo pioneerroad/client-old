@@ -8,14 +8,16 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
     });
 
     var resolveLogin = {
-      app: ['$cookies', '$location', function($cookies, $location) {
+      app: ['$cookies', '$location', '$rootScope', function($cookies, $location, $rootScope) {
+        $rootScope.header = '';
         if($cookies.token) { return true; }
         else { $location.path('/login'); return false; }
       }]
     };
 
     var alreadyLoggedIn = {
-      app: ['$cookies', '$location', function($cookies, $location) {
+      app: ['$cookies', '$location', '$rootScope', function($cookies, $location, $rootScope) {
+        $rootScope.header = '';
         if($cookies.token) { $location.path('/profile'); return true; }
         else { return false; }
       }]
@@ -54,7 +56,8 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
       })
       .when('/signup', {
         templateUrl: '/views/signup.html',
-        controller: 'SignUpCtrl'
+        controller: 'SignUpCtrl',
+        resolve: alreadyLoggedIn
       })
       .otherwise('/');
 

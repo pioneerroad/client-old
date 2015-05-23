@@ -1,7 +1,8 @@
 angular.module('pioneerRoadConnect')
-  .controller('PlacesMainCtrl', ['$scope', 'uiGmapGoogleMapApi', '$timeout', '$log', function($scope, uiGmapGoogleMapApi, $timeout, $log) {
+  .controller('PlacesMainCtrl', ['$scope', '$rootScope', 'uiGmapGoogleMapApi', '$timeout', '$log', function($scope, $rootScope, uiGmapGoogleMapApi, $timeout, $log) {
     // $scope.map = { center: { latitude: -33.7969235, longitude: 150.9224326 }, zoom: 10 };
     $scope.mapHeight = angular.element(window).height() - 65 - 70;
+    $rootScope.header = 'map';
     angular.element('.angular-google-map-container').height(angular.element(window).height());
     $scope.map = {
       center: {

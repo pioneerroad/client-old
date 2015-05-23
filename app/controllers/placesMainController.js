@@ -1,6 +1,7 @@
 angular.module('pioneerRoadConnect')
   .controller('PlacesMainCtrl', ['$scope', 'uiGmapGoogleMapApi', '$timeout', '$log', function($scope, uiGmapGoogleMapApi, $timeout, $log) {
     // $scope.map = { center: { latitude: -33.7969235, longitude: 150.9224326 }, zoom: 10 };
+    $scope.mapHeight = angular.element(window).height() - 65 - 70;
     angular.element('.angular-google-map-container').height(angular.element(window).height());
     $scope.map = {
       center: {
@@ -20,6 +21,39 @@ angular.module('pioneerRoadConnect')
       show: false,
       id: 0
     };
+
+    angular.extend($scope, {
+      berlin: {
+        lat: 52.52,
+        lng: 13.40,
+        zoom: 14
+      },
+      markers: {
+        m1: {
+          lat: 52.52,
+          lng: 13.40
+        }
+      },
+      layers: {
+        baselayers: {
+          googleTerrain: {
+            name: 'Google Terrain',
+            layerType: 'TERRAIN',
+            type: 'google'
+          },
+          googleHybrid: {
+            name: 'Google Hybrid',
+            layerType: 'HYBRID',
+            type: 'google'
+          },
+          googleRoadmap: {
+            name: 'Google Streets',
+            layerType: 'ROADMAP',
+            type: 'google'
+          }
+        }
+      }
+    });
 
     $scope.windowOptions = {
       visible: false

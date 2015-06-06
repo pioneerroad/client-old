@@ -1,5 +1,19 @@
-angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps', 'leaflet-directive'])
-  .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, GoogleMapApiProviders) {
+angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps', 'leaflet-directive', 'ngJcrop'])
+  .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', 'ngJcropConfigProvider', function($routeProvider, $locationProvider, GoogleMapApiProviders, ngJcropConfigProvider) {
+
+    ngJcropConfigProvider.setJcropConfig({
+        bgColor: 'black',
+        bgOpacity: 0.4,
+        aspectRatio: 1,
+    });
+
+        // [optional] To change the css style in the preview image
+    ngJcropConfigProvider.setPreviewStyle({
+        'width': '100px',
+        'height': '100px',
+        'overflow': 'hidden',
+        'margin-left': '5px'
+    });
 
     GoogleMapApiProviders.configure({
       v: '3.17',

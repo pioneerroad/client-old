@@ -28,6 +28,17 @@ angular.module('pioneerRoadConnect')
       $scope.closeHomeTown();
     };
 
+    $scope.obj = {};
+
+    // The url or the data64 for the image
+    $scope.obj.src = '/assets/images/redpanda.jpg';
+
+    // Must be [x, y, x2, y2, w, h]
+    $scope.obj.coords = [100, 100, 200, 200, 100, 100];
+
+    // You can add a thumbnail if you want
+    $scope.obj.thumbnail = true;
+
     // make change button as a directive
     $scope.btnText = {};
     $scope.btnClass = {};
@@ -49,5 +60,12 @@ angular.module('pioneerRoadConnect')
         $scope.btnText[fieldName] = 'Friends Only';
         $scope.btnClass[fieldName] = 'btn-info';
       }
+    };
+
+    $scope.showHomeTown = false;
+    $scope.showUploadPictureView = false;
+    $scope.showUploadPicture = function() {
+      $scope.showUploadPictureView = true;
+      $scope.obj.src = 'http://placehold.it/200x200&text=PR';
     };
   }]);

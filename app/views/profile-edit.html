@@ -1,3 +1,13 @@
+  
+<div id="uploadPictureView" ng-show="showUploadPictureView">
+  <div class="container-fluid">
+    <div ng-jcrop="obj.src" selection="obj.coords" thumbnail="obj.thumbnail"></div>
+  </div>
+</div>
+
+<!-- <div class="row" ng-show="true">
+  <div ng-jcrop="obj.src" selection="obj.coords" thumbnail="obj.thumbnail"></div>
+</div> -->
 <div id="homeTownList" ng-show="showHomeTown">
   <div class="container-fluid">
     <input type="text" class="form-control" ng-keyup="autoFillHomeTown()" id="hometownList" ng-model="hometownList" placeholder="Enter your hometown...">
@@ -9,7 +19,7 @@
     <button class="btn btn-lg btn-primary" ng-click="closeHomeTown()">Close Home Town</button>
   </div>
 </div>
-<div class="row">
+<div class="row" ng-show="false">
   <div class="col-xs-12">
     <div class="col-xs-9"></div>
     <div class="col-xs-3">
@@ -50,7 +60,8 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <input type="file" class="form-control" id="background_photo" ng-model="user.background_photo" placeholder="Select a background photo...">
+        <!-- <input type="file" class="form-control" id="background_photo" ng-model="user.background_photo" placeholder="Select a background photo..."> -->
+        <button class="btn btn-primary" ng-click="showUploadPicture()">Upload Profile Picture</button>
       </div>
     </div>
     <div class="col-xs-3">

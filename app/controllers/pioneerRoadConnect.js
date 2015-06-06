@@ -1,4 +1,4 @@
-angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps', 'leaflet-directive', 'ngJcrop'])
+angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps', 'leaflet-directive', 'ngFileUpload','ngJcrop'])
   .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', 'ngJcropConfigProvider', function($routeProvider, $locationProvider, GoogleMapApiProviders, ngJcropConfigProvider) {
 
     ngJcropConfigProvider.setJcropConfig({

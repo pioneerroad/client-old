@@ -1,13 +1,29 @@
-  
-<div id="uploadPictureView" ng-show="showUploadPictureView">
+<div id="uploadPictureView" ng-show="showUploadBackgroundPictureView">
   <div class="container-fluid">
-    <div ng-jcrop="obj.src" selection="obj.coords" thumbnail="obj.thumbnail"></div>
+    <h1>Choose your Background Photo</h1>
+    <h2>File Change: </h2>
+    <button class="btn btn-large btn-primary" accept="image/*" ngf-accept="'image/*'" ngf-select ngf-change="uploadBackgroundLocal($files)">Upload on file change</button>
+    
+    <div ng-jcrop="backPhObj.src" selection="backPhObj.coords" thumbnail="backPhObj.thumbnail"></div>
+
+    <!-- <button class="btn btn-larage btn-primary" ng-click="findCoordinates()">Find Coordinates</button> -->
+    <button class="btn btn-larage btn-primary" ng-click="uploadBackgroundServer()">Upload to Server</button>
   </div>
 </div>
 
-<!-- <div class="row" ng-show="true">
-  <div ng-jcrop="obj.src" selection="obj.coords" thumbnail="obj.thumbnail"></div>
-</div> -->
+<div id="uploadPictureView" ng-show="showUploadProfilePictureView">
+  <div class="container-fluid">
+    <h1>Choose your Profile Photo</h1>
+    <h2>File Change: </h2>
+    <button class="btn btn-large btn-primary" accept="image/*" ngf-accept="'image/*'" ngf-select ngf-change="uploadProfileLocal($files)">Upload on file change</button>
+    
+    <div ng-jcrop="profPhObj.src" selection="profPhObj.coords" thumbnail="profPhObj.thumbnail"></div>
+
+    <!-- <button class="btn btn-larage btn-primary" ng-click="findCoordinates()">Find Coordinates</button> -->
+    <button class="btn btn-larage btn-primary" ng-click="uploadProfileServer()">Upload to Server</button>
+  </div>
+</div>
+
 <div id="homeTownList" ng-show="showHomeTown">
   <div class="container-fluid">
     <input type="text" class="form-control" ng-keyup="autoFillHomeTown()" id="hometownList" ng-model="hometownList" placeholder="Enter your hometown...">
@@ -60,8 +76,7 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <!-- <input type="file" class="form-control" id="background_photo" ng-model="user.background_photo" placeholder="Select a background photo..."> -->
-        <button class="btn btn-primary" ng-click="showUploadPicture()">Upload Profile Picture</button>
+        <button class="btn btn-primary" ng-click="showUploadBackgroundPicture()">Upload Background Picture</button>
       </div>
     </div>
     <div class="col-xs-3">
@@ -74,7 +89,7 @@
     </div>
     <div class="col-xs-9">
       <div class="form-group">
-        <input type="file" class="form-control" id="profile_photo" ng-model="user.profile_photo" placeholder="Select your profile photo...">
+        <button class="btn btn-primary" ng-click="showUploadProfilePicture()">Upload Profile Picture</button>
       </div>
     </div>
     <div class="col-xs-3">

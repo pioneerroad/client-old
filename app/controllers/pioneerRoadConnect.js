@@ -7,14 +7,6 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
         aspectRatio: 1,
     });
 
-        // [optional] To change the css style in the preview image
-    // ngJcropConfigProvider.setPreviewStyle({
-    //     'width': '100px',
-    //     'height': '100px',
-    //     'overflow': 'hidden',
-    //     'margin-left': '5px'
-    // });
-
     GoogleMapApiProviders.configure({
       v: '3.17',
       libraries: 'weather,geometry,visualization',
@@ -72,6 +64,11 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
         templateUrl: '/views/signup.html',
         controller: 'SignUpCtrl',
         resolve: alreadyLoggedIn
+      })
+      .when('/messages', {
+        templateUrl: '/views/messages.html',
+        controller: 'MessagesCtrl',
+        resolve: resolveLogin
       })
       .otherwise('/');
 

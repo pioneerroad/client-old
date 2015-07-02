@@ -8,12 +8,12 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
     });
 
         // [optional] To change the css style in the preview image
-    ngJcropConfigProvider.setPreviewStyle({
-        'width': '100px',
-        'height': '100px',
-        'overflow': 'hidden',
-        'margin-left': '5px'
-    });
+    // ngJcropConfigProvider.setPreviewStyle({
+    //     'width': '100px',
+    //     'height': '100px',
+    //     'overflow': 'hidden',
+    //     'margin-left': '5px'
+    // });
 
     GoogleMapApiProviders.configure({
       v: '3.17',
@@ -24,7 +24,7 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
     var resolveLogin = {
       app: ['$cookies', '$location', '$rootScope', function($cookies, $location, $rootScope) {
         $rootScope.header = '';
-        if($cookies.token) { return true; }
+        if($cookies.get('token')) { return true; }
         else { $location.path('/login'); return false; }
       }]
     };
@@ -32,7 +32,7 @@ angular.module('pioneerRoadConnect', ['ngRoute', 'ngCookies', 'uiGmapgoogle-maps
     var alreadyLoggedIn = {
       app: ['$cookies', '$location', '$rootScope', function($cookies, $location, $rootScope) {
         $rootScope.header = '';
-        if($cookies.token) { $location.path('/profile'); return true; }
+        if($cookies.get('token')) { $location.path('/profile'); return true; }
         else { return false; }
       }]
     };

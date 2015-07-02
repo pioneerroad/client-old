@@ -1,10 +1,11 @@
 angular.module('pioneerRoadConnect')
-  .controller('ProfileEditCtrl', ['$scope', '$rootScope', '$http', 'ApiPath', 'Upload', function($scope, $rootScope, $http, ApiPath, Upload) {
+  .controller('ProfileEditCtrl', ['$scope', '$rootScope', '$cookies','$http', 'ApiPath', 'Upload', function($scope, $rootScope, $cookies, $http, ApiPath, Upload) {
 
     angular.element('#homeTownList').height(angular.element(window).height());
     $rootScope.header = 'profile';
     $scope.showHomeTown = false;
-    $scope.user = {};
+    $scope.user = $cookies.getObject('user');
+    console.log($scope.user);
     $scope.homeTowns = [];
 
     $scope.autoFillHomeTown = function() {
@@ -37,11 +38,10 @@ angular.module('pioneerRoadConnect')
     $scope.profPhObj.coords = [100, 100, 200, 200, 100, 100];
 
     // You can add a thumbnail if you want
-    $scope.profPhObj.thumbnail = true;
+    $scope.profPhObj.thumbnail = false;
 
     // Function to show a popup for choosing the file from filesystem.
     $scope.uploadProfileLocal = function (files) {
-      console.log(files);
       if(files && files.length) {
         $scope.backgroundPhotoLocalPath = files[0];
         var reader = new FileReader();
@@ -61,13 +61,20 @@ angular.module('pioneerRoadConnect')
     $scope.uploadProfileServer = function() {
       if($scope.backgroundPhotoLocalPath) {
         Upload.upload({
-          url: 'upload/url',
-          fields: {
-            dimensions: [$scope.profPhObj.coords[4], $scope.profPhObj.coords[5]],
-            coordinate1: [$scope.profPhObj.coords[0], $scope.profPhObj.coords[1]],
-            coordinate2: [$scope.profPhObj.coords[2], $scope.profPhObj.coords[3]],
+          url: ApiPath+'/api/v1/user/'+$scope.user.id+'/profile/photo',
+          method: 'PUT',
+          headers: {
+            'Authorization': 'Basic ' + $cookies.get('authdata'),
+            'x-access-token': $cookies.get('token'),
           },
-          file: $scope.backgroundPhotoLocalPath
+          fields: {
+            width: $scope.profPhObj.coords[4],
+            height: $scope.profPhObj.coords[5],
+            x: $scope.profPhObj.coords[0],
+            y: $scope.profPhObj.coords[1],
+          },
+          file: $scope.backgroundPhotoLocalPath,
+          fileFormDataName: 'image',
         }).progress(function(evt) {
           var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
           console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
@@ -97,11 +104,11 @@ angular.module('pioneerRoadConnect')
       if($scope.btnText[fieldName] === 'Public') {
         $scope.btnText[fieldName] = 'Private';
         $scope.btnClass[fieldName] = 'btn-warning';
-      } else if($scope.btnText[fieldName] === 'Friends Only') {
+      } else if($scope.btnText[fieldName] === 'Friends') {
         $scope.btnText[fieldName] = 'Public';
         $scope.btnClass[fieldName] = 'btn-danger';
       } else if($scope.btnText[fieldName] === 'Private') {
-        $scope.btnText[fieldName] = 'Friends Only';
+        $scope.btnText[fieldName] = 'Friends';
         $scope.btnClass[fieldName] = 'btn-info';
       }
     };
@@ -120,11 +127,10 @@ angular.module('pioneerRoadConnect')
     $scope.backPhObj.coords = [100, 100, 200, 200, 100, 100];
 
     // You can add a thumbnail if you want
-    $scope.backPhObj.thumbnail = true;
+    $scope.backPhObj.thumbnail = false;
 
     // Function to show a popup for choosing the file from filesystem.
     $scope.uploadBackgroundLocal = function (files) {
-      console.log(files);
       if(files && files.length) {
         $scope.backgroundPhotoLocalPath = files[0];
         var reader = new FileReader();
@@ -144,13 +150,20 @@ angular.module('pioneerRoadConnect')
     $scope.uploadBackgroundServer = function() {
       if($scope.backgroundPhotoLocalPath) {
         Upload.upload({
-          url: 'upload/url',
-          fields: {
-            dimensions: [$scope.backPhObj.coords[4], $scope.backPhObj.coords[5]],
-            coordinate1: [$scope.backPhObj.coords[0], $scope.backPhObj.coords[1]],
-            coordinate2: [$scope.backPhObj.coords[2], $scope.backPhObj.coords[3]],
+          url: ApiPath+'/api/v1/user/'+$scope.user.id+'/profile/background-photo',
+          method: 'PUT',
+          headers: {
+            'Authorization': 'Basic ' + $cookies.get('authdata'),
+            'x-access-token': $cookies.get('token'),
           },
-          file: $scope.backgroundPhotoLocalPath
+          fields: {
+            width: $scope.backPhObj.coords[4],
+            height: $scope.backPhObj.coords[5],
+            x: $scope.backPhObj.coords[0],
+            y: $scope.backPhObj.coords[1],
+          },
+          file: $scope.backgroundPhotoLocalPath,
+          fileFormDataName: 'image',
         }).progress(function(evt) {
           var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
           console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
@@ -167,7 +180,7 @@ angular.module('pioneerRoadConnect')
       // This is to show the ng-jcrop correctly otherwise won't work
       $scope.profPhObj.src = 'http://placehold.it/200x200&text=PR';
       $scope.profPhObj.coords = [100, 100, 200, 200, 100, 100];
-      $scope.profPhObj.thumbnail = true;
+      $scope.profPhObj.thumbnail = false;
     };
 
     $scope.showUploadBackgroundPicture = function() {
@@ -175,7 +188,14 @@ angular.module('pioneerRoadConnect')
       // This is to show the ng-jcrop correctly otherwise won't work
       $scope.backPhObj.src = 'http://placehold.it/200x200&text=PR';
       $scope.backPhObj.coords = [100, 100, 200, 200, 100, 100];
-      $scope.backPhObj.thumbnail = true;
+      $scope.backPhObj.thumbnail = false;
+    };
+
+    $scope.closeBP = function() {
+      $scope.showUploadBackgroundPictureView = false;
+    };
+    $scope.closePP = function() {
+      $scope.showUploadProfilePictureView = false;
     };
 
   }]);

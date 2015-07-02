@@ -1,6 +1,6 @@
 angular.module('pioneerRoadConnect')
-  .factory('AuthenticationService', ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout', 'ApiPath',
-    function(Base64, $http, $cookieStore, $rootScope, $timeout, ApiPath) {
+  .factory('AuthenticationService', ['Base64', '$http', '$cookies', '$cookieStore', '$rootScope', '$timeout', 'ApiPath',
+    function(Base64, $http, $cookies, $cookieStore, $rootScope, $timeout, ApiPath) {
       var service = {};
 
       service.Login = function(username, password) {
@@ -14,6 +14,7 @@ angular.module('pioneerRoadConnect')
 
       service.SetCredentials = function(username, password) {
         var authdata = Base64.encode(username + ':' + password);
+        $cookies.put('authdata', authdata);
 
         $rootScope.globals = {
           currentUser: {

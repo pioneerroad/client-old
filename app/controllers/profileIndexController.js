@@ -1,7 +1,7 @@
 angular.module('pioneerRoadConnect')
   .controller('ProfileIndexCtrl', ['$scope', '$rootScope', '$location', '$cookies', function($scope, $rootScope, $location, $cookies) {
     $scope.logout = function() {
-      delete $cookies.token;
+      $cookies.put('token', '');
       $location.path('/');
     };
 

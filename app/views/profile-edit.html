@@ -2,12 +2,13 @@
   <div class="container-fluid">
     <h1>Choose your Background Photo</h1>
     <h2>File Change: </h2>
-    <button class="btn btn-large btn-primary" accept="image/*" ngf-accept="'image/*'" ngf-select ngf-change="uploadBackgroundLocal($files)">Upload on file change</button>
+    <button class="btn btn-large btn-primary" accept="image/*" ngf-accept="'image/*'" ngf-select ngf-change="uploadBackgroundLocal($files)" capture="camera">Upload on file change</button>
     
     <div ng-jcrop="backPhObj.src" selection="backPhObj.coords" thumbnail="backPhObj.thumbnail"></div>
 
     <!-- <button class="btn btn-larage btn-primary" ng-click="findCoordinates()">Find Coordinates</button> -->
     <button class="btn btn-larage btn-primary" ng-click="uploadBackgroundServer()">Upload to Server</button>
+    <button class="btn btn-larage btn-primary" ng-click="closeBP()">Close</button>
   </div>
 </div>
 
@@ -15,12 +16,13 @@
   <div class="container-fluid">
     <h1>Choose your Profile Photo</h1>
     <h2>File Change: </h2>
-    <button class="btn btn-large btn-primary" accept="image/*" ngf-accept="'image/*'" ngf-select ngf-change="uploadProfileLocal($files)">Upload on file change</button>
+    <button class="btn btn-large btn-primary" accept="image/*" ngf-accept="'image/*'" ngf-select ngf-change="uploadProfileLocal($files)" capture="camera">Upload on file change</button>
     
     <div ng-jcrop="profPhObj.src" selection="profPhObj.coords" thumbnail="profPhObj.thumbnail"></div>
 
     <!-- <button class="btn btn-larage btn-primary" ng-click="findCoordinates()">Find Coordinates</button> -->
     <button class="btn btn-larage btn-primary" ng-click="uploadProfileServer()">Upload to Server</button>
+    <button class="btn btn-larage btn-primary" ng-click="closePP()">Close</button>
   </div>
 </div>
 

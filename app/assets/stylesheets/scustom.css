@@ -167,6 +167,14 @@
   color: #FAFAFA;
 }
 
+.ng-jcrop-image-wrapper {
+  display: inline-block;
+}
+
+.ng-jcrop-thumbnail-wrapper {
+  display: inline-block;
+}
+
 .pa-friends .friends {
   max-width: 100%;
   margin-left: auto;

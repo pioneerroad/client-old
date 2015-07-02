@@ -28,7 +28,7 @@
   color: #333;
 }
 .pioneerRoadHeader .social-tabs .center-tabs {
-  width: 38%;
+  width: 155px;
   overflow: auto;
   margin: 0 auto;
   text-align: center;
@@ -75,7 +75,7 @@
 }
 .pa-friends .sub-tabs .st-center {
   margin: 0 auto;
-  width: 50%;
+  width: 194px;
 }
 .pr-message {
   position: absolute;
@@ -115,7 +115,7 @@
 #homeTownList {
   overflow-y: scroll;
   position: fixed;
-  padding-top: 4em;
+  padding-top: 5em;
   top: 0;
   left: 0;
   width: 100%;

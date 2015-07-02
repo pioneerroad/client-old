@@ -2,7 +2,6 @@ angular.module('pioneerRoadConnect')
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', '$timeout', '$cookies', 'AuthenticationService', function($scope, $rootScope, $http, $location, $timeout, $cookies, AuthenticationService) {
     $scope.messageBool = false;
     $rootScope.header = '';
-    console.log($cookies.token);
 
     $scope.closeError = function() {
       $scope.messageBool = false;
@@ -15,10 +14,10 @@ angular.module('pioneerRoadConnect')
         .success(function(response) {
           if (response.token) {
             // add to the location storage
-            console.log(response.user);
+            $cookies.putObject('user', response.user);
             var token = response.token;
-            console.log(token);
-            $cookies.token = token;
+            $cookies.put('token',token);
+            // $http.defaults.headers.common['x-access-token'] = token;
             $scope.message = "Successfully authenticated.";
             $scope.messageType = "alert-success";
             $scope.messageBool = true;
